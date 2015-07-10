@@ -1,7 +1,4 @@
 ---
-- name: Set sudo group to NOPASSWD in sudoers
-  action: lineinfile dest=/etc/sudoers regexp="^%sudo" line="%sudo  ALL=(ALL:ALL) NOPASSWD:ALL" state=present
-
 - name: Disallow password authentication
   action: lineinfile dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
   notify:
